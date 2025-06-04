@@ -11,61 +11,30 @@ def main():
         initial_sidebar_state="collapsed"
     )
     
+    # Force light theme
+    st.markdown("""
+    <style>
+        .stApp {
+            background-color: white;
+            color: black;
+        }
+    </style>
+    """, unsafe_allow_html=True)
+    
     # Dictionnaire de traductions (English only)
     translations = {
         "title": "Alina Ghani",
         "subtitle": "Applied AI, Product Engineer",
         "tab_feed": "Portfolio",
-        "tab_experience": "Experience",
-        "tab_skills": "Skills",
         "tab_motivation": "Why Anthropic",
+        "tab_skills": "Skills",
         "tab_contact": "Contact",
         "feed_title": "My AI Journey",
-        "experience_title": "Professional Journey",
-        "skills_title": "Technical Excellence",
         "motivation_title": "Why Anthropic?",
+        "skills_title": "Technical Excellence",
         "contact_title": "Let's Connect",
         "seeking": "Seeking Applied AI, Product Engineer Role - London",
-        "accenture_role": "GenAI Solutions Consultant",
-        "accenture_1": "Partnered with enterprise clients (Peugeot, Chanel, L'Oréal) to scope and implement generative AI solutions",
-        "accenture_2": "Designed and delivered customized POCs including RAG systems and onboarding copilots",
-        "accenture_3": "Worked cross-functionally with technical and product teams to ensure fast deployment of scalable GenAI features",
-        "accenture_4": "Played a key role in customer education and internal adoption by simplifying LLM capabilities for business teams",
-        "decathlon_role": "AI & Vision Engineer",
-        "decathlon_1": "Built computer vision pipelines for internal experimentation and piloting using Python and Mediapipe",
-        "decathlon_2": "Collaborated with R&D teams to design architectures aligned with real-world product constraints",
-        "decathlon_3": "Developed scalable vision solutions for sports technology applications",
-        "decathlon_4": "Integrated ML models into production environments with focus on performance optimization",
-        "ace_role": "Data Engineer",
-        "ace_1": "Improved conversational UX by building NLP modules into customer-facing chatbots",
-        "ace_2": "Handled data cleaning and pipeline automation in SQL and Python to support backend reliability",
-        "ace_3": "Optimized data workflows to support real-time customer interactions",
-        "ace_4": "Collaborated with product teams to enhance user experience through data-driven insights",
-        "motivation_quote": "Since the release of ChatGPT in 2021, I've had the opportunity to build prototypes, websites, and small AI tools at lightning speed and to explain them to others. I suddenly felt more capable, more creative, even more intelligent. That feeling of excitement and empowerment completely changed the way I see work, creation, and learning. And now, more than anything, I want to share that feeling with others.",
-        "motivation_text1": "Not a single day goes by where I feel bored. Sometimes I feel overwhelmed, yes, but always in the best way possible. Whether it's text, image, or voice generation, building together with AI makes me feel alive. Isn't that what we're all looking for? I feel incredibly grateful to live at a time where this kind of creation is possible, and I know there's no place I'd rather be than in the middle of it.",
-        "motivation_text2": "Claude is, hands down, my favorite model to 'vibe-code' with. It has become a true partner in how I build and think. The product is simply exceptional! and when you're already a power user and a fan, it doesn't feel like 'selling' anything. It feels like sharing something you genuinely believe in.",
-        "motivation_bring_title": "What I bring to Anthropic:",
-        "motivation_bring_1": "Proven track record in enterprise AI adoption with top-tier clients",
-        "motivation_bring_2": "Human-first approach to AI that prioritizes safety and user trust", 
-        "motivation_bring_3": "Ability to rapidly prototype and deploy LLM solutions that solve real business problems",
-        "motivation_bring_4": "Passion for making AI more approachable, responsible, and exciting",
-        "motivation_goals_title": "My goals at Anthropic:",
-        "motivation_goals_1": "Drive enterprise adoption of Claude through innovative solution architecture",
-        "motivation_goals_2": "Help customers integrate AI safely and effectively into their core business processes",
-        "motivation_goals_3": "Advance the frontier of beneficial AI through customer collaboration and feedback",
-        "motivation_goals_4": "Contribute to Anthropic's mission of creating interpretable and steerable AI systems",
-        "perfect_match_title": "The Perfect Alignment",
-        "perfect_match_subtitle": "Your Needs = My Experience",
-        "perfect_match_1": "Technical Advisory: Extensive experience as customer-facing AI consultant with enterprise clients",
-        "perfect_match_2": "LLM Solutions: Deep expertise in Claude, GPT, and RAG system development", 
-        "perfect_match_3": "Customer Success: Proven track record in customer onboarding and solution architecture",
-        "perfect_match_4": "Cross-functional Collaboration: Experience working with Sales, Product, and Engineering teams",
-        "perfect_match_5": "Safety & Ethics: Commitment to responsible AI development and deployment",
-        "contact_ready": "Ready to build the future of beneficial AI with Anthropic",
-        "contact_available": "I'm excited to discuss how my experience in enterprise AI solutions and passion for safe, beneficial AI can contribute to Anthropic's mission and the Applied AI team's success.",
-        "contact_availability": "Availability: Immediate for London-based role",
-        "contact_location": "Location: Ready to relocate to London",
-        "contact_motivation": "Motivation: Building AI that truly matters",
+        "motivation_text": "Since the release of ChatGPT in 2021, I've had the opportunity to build prototypes, websites, and small AI tools at lightning speed, and to explain them to others. I suddenly felt more capable, more creative, even more intelligent. That feeling of excitement and empowerment completely changed the way I see work, creation, and learning. And now, more than anything, I want to share that feeling with others. I want people to feel what I felt, that sense of being *more* thanks to AI.\n\nNot a single day goes by where I feel bored. Sometimes I feel overwhelmed, yes, but always in the best way possible. Whether it's text, image, or voice generation, building together with AI makes me feel alive. Isn't that what we're all looking for? I feel incredibly grateful to live at a time where this kind of creation is possible, and I know there's no place I'd rather be than in the middle of it.\n\nClaude is, hands down, my favorite model to \"vibe-code\" with. It has become a true partner in how I build and think. The product is simply exceptional, and when you're already a power user and a fan, it doesn't feel like \"selling\" anything. It feels like sharing something you genuinely believe in.",
         "contact_button": "Let's Talk AI",
         "footer_text": "Applied AI Product Engineer • Anthropic Dream Candidate 2025"
     }
@@ -491,7 +460,7 @@ def main():
     """, unsafe_allow_html=True)
     
     # Tabs
-    tabs = st.tabs([translations['tab_feed'], translations['tab_experience'], translations['tab_skills'], translations['tab_motivation'], translations['tab_contact']])
+    tabs = st.tabs([translations['tab_feed'], translations['tab_motivation'], translations['tab_skills'], translations['tab_contact']])
     
     # Tab 1: Portfolio (Instagram style with actual photos)
     with tabs[0]:
@@ -519,86 +488,15 @@ def main():
                     </div>
                     """, unsafe_allow_html=True)
     
-    # Tab 2: Experience
+    # Tab 2: Why Anthropic
     with tabs[1]:
         st.markdown(f"""
         <div class="section-container">
-            <h2 class="section-title">{translations['experience_title']}</h2>
-        </div>
-        """, unsafe_allow_html=True)
-        
-        # Experience 1: Accenture Song
-        st.markdown(f"""
-        <div class="experience-card">
-            <div class="experience-header">
-                <h3 class="experience-title">Accenture Song</h3>
-                <span class="experience-date">2023</span>
-            </div>
-            <div class="experience-content">
-                <p class="experience-role">{translations['accenture_role']}</p>
-                <ul class="experience-list">
-                    <li class="experience-item">{translations['accenture_1']}</li>
-                    <li class="experience-item">{translations['accenture_2']}</li>
-                    <li class="experience-item">{translations['accenture_3']}</li>
-                    <li class="experience-item">{translations['accenture_4']}</li>
-                </ul>
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
-        
-        # Experience 2: Decathlon
-        st.markdown(f"""
-        <div class="experience-card">
-            <div class="experience-header">
-                <h3 class="experience-title">Decathlon</h3>
-                <span class="experience-date">2022</span>
-            </div>
-            <div class="experience-content">
-                <p class="experience-role">{translations['decathlon_role']}</p>
-                <ul class="experience-list">
-                    <li class="experience-item">{translations['decathlon_1']}</li>
-                    <li class="experience-item">{translations['decathlon_2']}</li>
-                    <li class="experience-item">{translations['decathlon_3']}</li>
-                    <li class="experience-item">{translations['decathlon_4']}</li>
-                </ul>
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
-        
-        # Experience 3: ACE Money Transfer
-        st.markdown(f"""
-        <div class="experience-card">
-            <div class="experience-header">
-                <h3 class="experience-title">ACE Money Transfer</h3>
-                <span class="experience-date">2022</span>
-            </div>
-            <div class="experience-content">
-                <p class="experience-role">{translations['ace_role']}</p>
-                <ul class="experience-list">
-                    <li class="experience-item">{translations['ace_1']}</li>
-                    <li class="experience-item">{translations['ace_2']}</li>
-                    <li class="experience-item">{translations['ace_3']}</li>
-                    <li class="experience-item">{translations['ace_4']}</li>
-                </ul>
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
-        
-        # Education Section
-        st.markdown(f"""
-        <div class="experience-card">
-            <div class="experience-header">
-                <h3 class="experience-title">Education</h3>
-                <span class="experience-date">2022 - 2024</span>
-            </div>
-            <div class="experience-content">
-                <p class="experience-role">Master's in Data Engineering</p>
-                <ul class="experience-list">
-                    <li class="experience-item">EFREI Paris / Panthéon-Assas University</li>
-                    <li class="experience-item">Academic Exchange at Staffordshire University, UK (2021-2022)</li>
-                    <li class="experience-item">Specialized in AI, Machine Learning, and Data Engineering</li>
-                    <li class="experience-item">Azure AZ-900 and AI-900 Certified</li>
-                </ul>
+            <h2 class="section-title">{translations['motivation_title']}</h2>
+            <div class="motivation-container">
+                <p class="motivation-text">
+                    {translations['motivation_text']}
+                </p>
             </div>
         </div>
         """, unsafe_allow_html=True)
@@ -635,62 +533,8 @@ def main():
                 </div>
                 """, unsafe_allow_html=True)
     
-    # Tab 4: Why Anthropic
+    # Tab 4: Contact
     with tabs[3]:
-        st.markdown(f"""
-        <div class="section-container">
-            <h2 class="section-title">{translations['motivation_title']}</h2>
-            <div class="motivation-container">
-                <p class="motivation-quote">
-                    {translations['motivation_quote']}
-                </p>
-                <p class="motivation-text">
-                    {translations['motivation_text1']}
-                </p>
-                <p class="motivation-text">
-                    {translations['motivation_text2']}
-                </p>
-                <p class="motivation-text">
-                    <strong>{translations['motivation_bring_title']}</strong><br><br>
-                    • {translations['motivation_bring_1']}<br>
-                    • {translations['motivation_bring_2']}<br>
-                    • {translations['motivation_bring_3']}<br>
-                    • {translations['motivation_bring_4']}
-                </p>
-                <p class="motivation-text">
-                    <strong>{translations['motivation_goals_title']}</strong><br><br>
-                    • {translations['motivation_goals_1']}<br>
-                    • {translations['motivation_goals_2']}<br>
-                    • {translations['motivation_goals_3']}<br>
-                    • {translations['motivation_goals_4']}
-                </p>
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
-        
-        # Perfect Match
-        st.markdown(f"""
-        <div class="section-container">
-            <h2 class="section-title">{translations['perfect_match_title']}</h2>
-            <div class="experience-card">
-                <div class="experience-header">
-                    <h3 class="experience-title">{translations['perfect_match_subtitle']}</h3>
-                </div>
-                <div class="experience-content">
-                    <ul class="experience-list">
-                        <li class="experience-item"><strong>{translations['perfect_match_1']}</strong></li>
-                        <li class="experience-item"><strong>{translations['perfect_match_2']}</strong></li>
-                        <li class="experience-item"><strong>{translations['perfect_match_3']}</strong></li>
-                        <li class="experience-item"><strong>{translations['perfect_match_4']}</strong></li>
-                        <li class="experience-item"><strong>{translations['perfect_match_5']}</strong></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
-    
-    # Tab 5: Contact
-    with tabs[4]:
         st.markdown(f"""
         <div class="contact-container">
             <h2 class="contact-title">{translations['contact_title']}</h2>
@@ -700,25 +544,6 @@ def main():
                 <p><a href="https://www.linkedin.com/in/alina-ghani/" class="contact-link">LinkedIn: Alina Ghani</a></p>
                 <p>Paris, France → London, UK</p>
                 <p>Ready for international opportunities</p>
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
-        
-        # Message personnalisé
-        st.markdown(f"""
-        <div class="section-container">
-            <div class="motivation-container">
-                <p class="motivation-quote">
-                    "{translations['contact_ready']}"
-                </p>
-                <p class="motivation-text">
-                    {translations['contact_available']}
-                </p>
-                <p class="motivation-text">
-                    <strong>{translations['contact_availability']}</strong><br>
-                    <strong>{translations['contact_location']}</strong><br>
-                    <strong>{translations['contact_motivation']}</strong>
-                </p>
             </div>
         </div>
         """, unsafe_allow_html=True)
